@@ -25,7 +25,10 @@ macos() {
   brew tap homebrew/bundle
 
   echo -e "${CYAN}=> Installing brew apps ${NC} "
-  brew install $(grep . brew.ini | xargs)
+  brew install $(grep . command-line-apps.ini | xargs)
+
+  echo -e "${CYAN}=> Installing brew cask apps${NC}"
+  brew cask install $(grep . apps.ini | xargs)
 
   brew upgrade
 }
